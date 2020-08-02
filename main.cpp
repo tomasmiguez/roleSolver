@@ -91,7 +91,7 @@ int main()
                 for(int i3=0; i3<5; i3++) {
                     for(int i4=0; i4<5; i4++) {
                         if(checkearDistri(roles, curInd, seJode)) {
-                            if(accumulate(curInd,curInd+5,0)<minim) {
+                            if(accumulate(curInd,curInd+5,0)<=minim) {
                                 minim = accumulate(curInd,curInd+5,0);
                                 copy(curInd, curInd+5, bestInd);
                             }

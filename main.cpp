@@ -74,7 +74,6 @@ int main()
     //---------------------------
     optimo:
 
-    curInd[CANT_GAMERS];
     for(int i=0; i<CANT_GAMERS; i++) {
         curInd[i] = 0;
     }
@@ -111,9 +110,43 @@ int main()
         curInd[0]++;
     }
 
-    cout << "\nOPTIMO: \n\n";
+    cout << "\n\nOPTIMO: \n";
 
-    for(int mostrarIndex=0; mostrarIndex<CANT_GAMERS; mostrarIndex++) {
+    /*for(int mostrarIndex=0; mostrarIndex<CANT_GAMERS; mostrarIndex++) {
         if(mostrarIndex != seJode) cout << gamerName[mostrarIndex] << ": " << rolName[roles[mostrarIndex][bestInd[mostrarIndex]]] << endl;
+    }*/
+
+//----------------
+
+    for(int i=0; i<CANT_GAMERS; i++) {
+        curInd[i] = 0;
+    }
+
+    for(int i0=0; i0<5; i0++) {
+        for(int i1=0; i1<5; i1++) {
+            for(int i2=0; i2<5; i2++) {
+                for(int i3=0; i3<5; i3++) {
+                    for(int i4=0; i4<5; i4++) {
+                        if(checkearDistri(roles, curInd, seJode)) {
+                            if(accumulate(curInd,curInd+5,0)==minim) {
+                                cout << endl;
+                                for(int mostrarIndex=0; mostrarIndex<CANT_GAMERS; mostrarIndex++) {
+                                    if(mostrarIndex != seJode) cout << gamerName[mostrarIndex] << ": " << rolName[roles[mostrarIndex][curInd[mostrarIndex]]] << endl;
+                                }
+                            }
+                        }
+                        curInd[4]++;
+                    }
+                    curInd[4]=0;
+                    curInd[3]++;
+                }
+                curInd[3]=0;
+                curInd[2]++;
+            }
+            curInd[2]=0;
+            curInd[1]++;
+        }
+        curInd[1]=0;
+        curInd[0]++;
     }
 }
